@@ -44,12 +44,15 @@ namespace Lana
     
             if(IsCollidingWith(_dieLayer))
             {
-                transform.position = _spawnPoint.position;
-                
-                 if (Time.time > lastDamageTime + damageCooldown)
+                if (Time.time > lastDamageTime + damageCooldown)
                     {
                         lastDamageTime = Time.time;
                         TakeDamage(1);
+                        if(currentHealth == 0 )
+                        {
+                            Application.Quit();
+                        }
+                        transform.position = _spawnPoint.position;
                     }
             }
 
