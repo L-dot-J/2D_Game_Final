@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 
 namespace Lana
@@ -24,17 +25,18 @@ namespace Lana
         private CharachterState charachterState;
         private int potionCollected = 0;
         public Action<int>OnPotionCollected;
-        // public int maxHealth = 4;
-        // public int currentHealth;
-        // public HUD healthBar;
+        public int maxHealth = 4;
+        public int currentHealth;
+        public HUD healthBar;
+        private float damageCooldown = 1f; 
+        private float lastDamageTime;
 
         void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
-            // currentHealth = maxHealth;
-            // healthBar.SetMaxHealth(maxHealth);
-
+            currentHealth = maxHealth;
+            healthBar.SetMaxHealth(4); 
         }
 
         void Update()
@@ -43,7 +45,12 @@ namespace Lana
             if(IsCollidingWith(_dieLayer))
             {
                 transform.position = _spawnPoint.position;
-                // TakeDamage(1);
+                
+                 if (Time.time > lastDamageTime + damageCooldown)
+                    {
+                        lastDamageTime = Time.time;
+                        TakeDamage(1);
+                    }
             }
 
             //move
@@ -101,15 +108,13 @@ namespace Lana
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, rayLength, mask);
             RaycastHit2D hitLeft = Physics2D.Raycast(bottomCenter, Vector2.left, sideRayLength, mask);
             RaycastHit2D hitRight = Physics2D.Raycast(bottomCenter, Vector2.right, sideRayLength, mask);
-            // Debug.DrawRay(bottomCenter, Vector2.down * 1f, hit.collider != null ? Color.green : Color.red);
-            // Debug.DrawRay(bottomCenter, Vector2.left * sideRayLength, hitLeft.collider != null ? Color.green : Color.red);
             // Debug.DrawRay(bottomCenter, Vector2.right * sideRayLength, hitRight.collider != null ? Color.green : Color.red);
             return  hit.collider != null || hitLeft.collider != null || hitRight.collider != null;
         }
         private void TakeDamage(int damage)
         {
-            // currentHealth -= damage;
-            // healthBar.SetHealth(currentHealth);
+            currentHealth -= damage;
+            healthBar.SetHealth(currentHealth);
         }
     }
 }

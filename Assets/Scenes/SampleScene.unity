@@ -23675,7 +23675,7 @@ GameObject:
   - component: {fileID: 903916479}
   - component: {fileID: 903916478}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25053,7 +25053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 1904437035}
   potionCounter: {fileID: 1150981787}
-  slider: {fileID: 0}
+  slider: {fileID: 1866709409}
 --- !u!1001 &2145763125
 PrefabInstance:
   m_ObjectHideFlags: 0
