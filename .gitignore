@@ -1,0 +1,20 @@
+# User-specific files
+*.user
+*.userprefs
+*.pidb
+*.suo
+*.svd
+Thumbs.db
+.DS_Store
+
+# Build directories
+/build/
+/Library/
+/Temp/
+/Logs/
+
+# Asset server directories
+/Assets/AssetStoreTools*
+
+# Cache
+/Library/Cache/*
