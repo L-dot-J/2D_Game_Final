@@ -30,6 +30,7 @@ namespace Lana
         public HUD healthBar;
         private float damageCooldown = 1f; 
         private float lastDamageTime;
+        public DeathMenu deathMenu;
 
         void Awake()
         {
@@ -50,7 +51,7 @@ namespace Lana
                         TakeDamage(1);
                         if(currentHealth == 0 )
                         {
-                            Application.Quit();
+                            deathMenu.OpenMenu();
                         }
                         transform.position = _spawnPoint.position;
                     }
@@ -97,7 +98,7 @@ namespace Lana
                     _spawnPoint.GetComponentInParent<Checkpoint>().SetCheckPointState(false);
 
                 _spawnPoint = collision.GetComponent<Checkpoint>().GetSpawnPoint();
-                collision.GetComponent<Checkpoint>().SetCheckPointState(true); // koju komponentu ja ubiti ovdje dohvacam ?
+                collision.GetComponent<Checkpoint>().SetCheckPointState(true); 
             }
         }
 

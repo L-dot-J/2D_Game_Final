@@ -10,9 +10,18 @@ public class HUD : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     [SerializeField] private TextMeshProUGUI potionCounter;
     public Slider slider;
+    [SerializeField] private float fadeTime;
+    [SerializeField] private TextMeshProUGUI fadeAwayText;
     void Start()
     {
         playerController.OnPotionCollected += CollectPotion;
+    }
+    void Update() {
+        if(fadeTime > 0)
+        {
+            fadeTime -= Time.deltaTime;
+            fadeAwayText.color = new Color(fadeAwayText.color.r, fadeAwayText.color.g, fadeAwayText.color.b, fadeTime);
+        }
     }
    
     public void CollectPotion(int curPotion)
