@@ -12,7 +12,10 @@ namespace Lana
     {
         public UnityEvent onLandEvent;
         public enum CharachterState{Idle, Walk, Jump}
-        private Transform _spawnPoint;
+        public Action<int>OnPotionCollected;
+        public HUD healthBar;
+        public DeathMenu deathMenu;
+        
         [SerializeField] private float _moveSpeed;
         [SerializeField] private float _jumpForce;
         [SerializeField] private BoxCollider2D _boxCollider; 
@@ -20,18 +23,17 @@ namespace Lana
         [SerializeField] private LayerMask _dieLayer;
         [SerializeField] private LayerMask _collidableLayers;
         [SerializeField] private SpriteRenderer _spriteRenderer;
+
+        private Transform _spawnPoint;
         private Rigidbody2D rb;
         private Animator animator;
         private CharachterState charachterState;
         private int potionCollected = 0;
-        public Action<int>OnPotionCollected;
-        public int maxHealth = 4;
-        public int currentHealth;
-        public HUD healthBar;
+        private int maxHealth = 4;
+        private int currentHealth;
         private float damageCooldown = 1f; 
         private float lastDamageTime;
-        public DeathMenu deathMenu;
-
+        
         void Awake()
         {
             rb = GetComponent<Rigidbody2D>();

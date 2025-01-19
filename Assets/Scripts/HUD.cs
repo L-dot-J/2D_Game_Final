@@ -7,9 +7,10 @@ using System.Collections.Generic;
 
 public class HUD : MonoBehaviour
 {
+    public Slider slider;
+
     [SerializeField] private PlayerController playerController;
     [SerializeField] private TextMeshProUGUI potionCounter;
-    public Slider slider;
     [SerializeField] private float fadeTime;
     [SerializeField] private TextMeshProUGUI fadeAwayText;
     void Start()
