@@ -103,6 +103,10 @@ namespace Lana
                 collision.GetComponent<Checkpoint>().SetCheckPointState(true); 
             }
         }
+        public int GetPotionCollected()
+        {
+            return potionCollected;
+        }
 
         private bool IsCollidingWith(LayerMask mask)
         {
