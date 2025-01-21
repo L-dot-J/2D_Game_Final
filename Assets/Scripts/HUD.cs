@@ -13,10 +13,12 @@ public class HUD : MonoBehaviour
     [SerializeField] private TextMeshProUGUI potionCounter;
     [SerializeField] private float fadeTime;
     [SerializeField] private TextMeshProUGUI fadeAwayText;
+
     void Start()
     {
         playerController.OnPotionCollected += CollectPotion;
     }
+
     void Update() {
         if(fadeTime > 0)
         {
@@ -27,7 +29,7 @@ public class HUD : MonoBehaviour
    
     public void CollectPotion(int curPotion)
     {
-        potionCounter.text = "Potions: "+ curPotion.ToString();   
+        potionCounter.text = "Potions: "+ curPotion.ToString() + "/5";   
     }
     public void SetMaxHealth(int health)
     {

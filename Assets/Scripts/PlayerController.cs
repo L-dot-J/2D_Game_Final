@@ -80,7 +80,7 @@ namespace Lana
             animator.SetInteger("state", (int)charachterState);
         }
 
-        public void InAir() // kuzim da sam malo zakomplicirala sa eventom mogla sam stavit samo obican if ali sam htjela probat kako eventi rade
+        public void InAir() 
         {
             charachterState = CharachterState.Jump;
         }

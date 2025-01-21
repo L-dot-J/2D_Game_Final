@@ -1,8 +1,12 @@
 fileFormatVersion: 2
-guid: d2863042f8f5e5c459dadd9c7ddd2524
-timeCreated: 1450977095
+guid: 76f85dddaf31aad48914833b8e346f06
+timeCreated: 1449031024
 licenseType: Store
-DefaultImporter:
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -11,5 +15,5 @@ AssetOrigin:
   productId: 113577
   packageName: Free Pixel Mob
   packageVersion: 1.0
-  assetPath: Assets/Character Pack/Enemy/SlimeSprite.unity
+  assetPath: Assets/FreePixelMob/StateRandom.cs
   uploadId: 239002

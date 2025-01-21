@@ -1,12 +1,16 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
 public class DeathMenu : MonoBehaviour
 {
     public enum DeathMenuState {Open, Closed}
+
     [SerializeField] private DeathMenuState menuState;
+
     private Transform[] buttons;
+    // public GameMenager gameMenager;
     void Awake()
     { 
         buttons = GetComponentsInChildren<Transform>();
@@ -35,6 +39,17 @@ public class DeathMenu : MonoBehaviour
     }
      public void TryAgain()
     {
+        //   foreach(var button in buttons)
+        // {
+        //     button.gameObject.SetActive(false);
+        // }
+
+        // menuState = DeathMenuState.Closed;
         Time.timeScale = 1f;
+        // string curScene = SceneManager.GetActiveScene().name;
+        // gameMenager.LoadAndUnloadScene(curScene);
+        SceneManager.LoadScene("LoaderScene");
+     
     }
+    
 }
