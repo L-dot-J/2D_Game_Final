@@ -180,6 +180,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _moveSpeed: 3
+  sfxEnemy: {fileID: 2609223239041891970, guid: dac3ff16412e2bf41b630f444d5e48b1, type: 3}
 --- !u!95 &1438254482262797107
 Animator:
   serializedVersion: 7

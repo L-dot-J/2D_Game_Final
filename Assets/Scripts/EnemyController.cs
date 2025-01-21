@@ -1,28 +1,55 @@
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class EnemyContoller : MonoBehaviour
 {
     [SerializeField] private Transform[] patrolPoints;
     [SerializeField] private float  _moveSpeed; 
+
+    [Header("Audio")]
+    [SerializeField] private GameObject sfxEnemy;
 
     private int patrolPointIndex = 0;
     private Transform currentPatrolPoint;
     private Rigidbody2D rb;
     private int direction = 0;
     private SpriteRenderer spriteRenderer;
+    private GameObject soundObject;
    
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>(); 
         spriteRenderer = GetComponent<SpriteRenderer>();
-        currentPatrolPoint = patrolPoints[patrolPointIndex];   
+        currentPatrolPoint = patrolPoints[patrolPointIndex];  
     }
 
     void Update()
     {
         UpdateDirection();
         MoveTowardsPatrolPoint();
+        if(Inviewport())
+        {
+            PlayEenemyMusic();
+        }
+        else
+        {
+            Destroy(soundObject);
+        }
+        
+    }
+
+    private bool Inviewport(){
+        Vector3 viewportPosition = Camera.main.WorldToViewportPoint(transform.position);
+        
+        bool isInViewport = viewportPosition.x >= 0 && viewportPosition.x <= 1 &&
+                             viewportPosition.y >= 0 && viewportPosition.y <= 1;
+        return isInViewport;
+    }
+    private void PlayEenemyMusic(){
+        if(soundObject == null)
+        {
+            soundObject = Instantiate(sfxEnemy, transform.position, Quaternion.identity); 
+        }
     }
 
     private void UpdateDirection(){

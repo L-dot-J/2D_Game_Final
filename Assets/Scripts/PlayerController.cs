@@ -24,6 +24,11 @@ namespace Lana
         [SerializeField] private LayerMask _collidableLayers;
         [SerializeField] private SpriteRenderer _spriteRenderer;
 
+        [Header("Audio")]
+        [SerializeField] private GameObject sfxPlayerDeath;
+        [SerializeField] private GameObject sfxPotionCollected;
+        [SerializeField] private GameObject sfxAmbiance;
+
         private Transform _spawnPoint;
         private Rigidbody2D rb;
         private Animator animator;
@@ -40,6 +45,7 @@ namespace Lana
             animator = GetComponent<Animator>();
             currentHealth = maxHealth;
             healthBar.SetMaxHealth(4); 
+            Instantiate(sfxAmbiance, transform.position, Quaternion.identity);
         }
 
         void Update()
@@ -56,6 +62,7 @@ namespace Lana
                             deathMenu.OpenMenu();
                         }
                         transform.position = _spawnPoint.position;
+                        Instantiate(sfxPlayerDeath, transform.position, Quaternion.identity);
                     }
             }
 
@@ -92,6 +99,7 @@ namespace Lana
                 potionCollected++;
                 OnPotionCollected?.Invoke(potionCollected);
                 Destroy(collision.gameObject);
+                Instantiate(sfxPotionCollected, transform.position, Quaternion.identity);
             }
 
             if (collision.CompareTag("Checkpoint"))

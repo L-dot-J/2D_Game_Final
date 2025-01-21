@@ -39,7 +39,7 @@ public class DeathMenu : MonoBehaviour
     }
      public void TryAgain()
     {
-        // Time.timeScale = 1f;
+        Time.timeScale = 1f;
         SceneManager.LoadScene("LoaderScene");
      
     }

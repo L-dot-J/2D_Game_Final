@@ -284,6 +284,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  healthBar: {fileID: 0}
+  deathMenu: {fileID: 0}
   _moveSpeed: 5
   _jumpForce: 5
   _boxCollider: {fileID: 4217134173556146771}
@@ -297,6 +299,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   _spriteRenderer: {fileID: 1839431742930326310}
+  sfxPlayerDeath: {fileID: 1004836838534591482, guid: 25109769e8c970b419fbf5efbb3834c1, type: 3}
+  sfxPotionCollected: {fileID: 1718480315932899544, guid: 2a878468bf979ea4181ddab54c8d3dbd, type: 3}
 --- !u!95 &1147261064010483598
 Animator:
   serializedVersion: 7

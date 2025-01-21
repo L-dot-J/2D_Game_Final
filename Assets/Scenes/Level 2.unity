@@ -27995,6 +27995,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2028636313}
     - target: {fileID: -1871029681941611941, guid: 8e712127400ffd24ca5eb94ecef2910f, type: 3}
+      propertyPath: sfxAmbiance
+      value: 
+      objectReference: {fileID: 7091071146447646395, guid: bc5bd67a3a514d141bdaea67ea5b3ef4, type: 3}
+    - target: {fileID: -1871029681941611941, guid: 8e712127400ffd24ca5eb94ecef2910f, type: 3}
       propertyPath: onLandEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
