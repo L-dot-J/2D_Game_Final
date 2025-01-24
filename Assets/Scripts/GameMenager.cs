@@ -9,7 +9,7 @@ public class GameMenager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-        LoadScene("Level 1");
+        LoadScene("Start");
     }
 
     public void LoadScene(string loadScene)

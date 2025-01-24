@@ -76,6 +76,7 @@
     <Compile Include="Assets\Character Pack\Enemy\Mobs.cs" />
     <Compile Include="Assets\Scripts\EndPoint.cs" />
     <Compile Include="Assets\yxcyx.cs" />
+    <Compile Include="Assets\Scripts\StartMenu.cs" />
     <Compile Include="Assets\Scripts\HUD.cs" />
   </ItemGroup>
   <ItemGroup>
